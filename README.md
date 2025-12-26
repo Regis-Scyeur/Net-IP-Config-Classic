@@ -1,350 +1,426 @@
-# NetIPConfig
+# 🌐 Net IP Config Classic
 
-**Outil multi-plateforme de configuration réseau IP**
+<div align="center">
 
-[![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-blue)](https://dotnet.microsoft.com/)
-[![Mono](https://img.shields.io/badge/Mono-Compatible-green)](https://www.mono-project.com/)
-[![Since](https://img.shields.io/badge/Since-2015-blue)](https://github.com/Regis-Scyeur/NetIPConfig)
-[![Era](https://img.shields.io/badge/Era-Pre_.NET_Core-orange)](https://github.com/Regis-Scyeur/NetIPConfig)
-[![License](https://img.shields.io/badge/license-Educational-lightgrey)](LICENSE)
+![Net IP Config Classic](https://img.shields.io/badge/Windows-Forms-blue?logo=windows)
+![.NET Framework](https://img.shields.io/badge/.NET-Framework%204.7.2-purple?logo=.net)
+![C#](https://img.shields.io/badge/C%23-Language-239120?logo=c-sharp)
+![Status](https://img.shields.io/badge/status-active-success)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Un projet créé en **2015** pour démontrer le développement cross-platform avec .NET Framework et Mono, permettant d'afficher les informations réseau (adresse IP, masque de sous-réseau, passerelle) sur Windows, Linux et macOS.
-
-> 📜 **Note historique** : Ce projet témoigne d'une époque où le développement multi-plateforme en .NET était un véritable défi technique. Voir la section [Contexte historique](#-contexte-historique--le-cross-platform-avant-net-core) pour comprendre les enjeux de l'époque.
+</div>
 
 ---
 
-## 📖 Contexte historique : Le cross-platform avant .NET Core
+## 📋 Table des Matières
 
-### 🕰️ **L'époque (2002-2016)**
+- [À Propos](#-à-propos)
+- [Fonctionnalités](#-fonctionnalités)
+- [Technologies Utilisées](#-technologies-utilisées)
+- [Captures d'Écran](#-captures-décran)
+- [Installation](#-installation)
+- [Utilisation](#-utilisation)
+- [Configuration](#-configuration)
+- [Structure du Projet](#-structure-du-projet)
+- [Contribution](#-contribution)
+- [Licence](#-licence)
+- [Auteur](#-auteur)
 
-Lorsque ce projet a été créé en 2015, le développement multi-plateforme en .NET était **radicalement différent** d'aujourd'hui :
+---
 
-#### **Les défis techniques**
+## 📖 À Propos
 
-1. **.NET Framework = Windows uniquement**
-   - .NET Framework (1.0 à 4.8) était exclusivement conçu pour Windows
-   - Impossible d'exécuter du code C# nativement sur Linux ou macOS
-   - Les développeurs devaient choisir entre .NET (Windows) ou Java (multi-plateforme)
+**Net IP Config Classic** est une application Windows Forms développée en C# avec .NET Framework 4.7.2. Elle permet de gérer facilement les configurations réseau de votre ordinateur, incluant les adresses IP, les serveurs DNS, et bien plus encore.
 
-2. **Mono : la solution communautaire**
-   - **Mono** était une implémentation open-source indépendante de .NET Framework
-   - Créé par Miguel de Icaza (Xamarin) en 2004
-   - Reverse-engineering des API Microsoft pour les recréer sur Linux/macOS
-   - **Problèmes majeurs** : 
-     - ❌ Compatibilité partielle (certaines classes manquantes ou non implémentées)
-     - ❌ Performances inférieures à .NET Framework natif
-     - ❌ Bugs spécifiques à chaque plateforme
-     - ❌ Documentation limitée et communauté restreinte
+Cette application est particulièrement utile pour :
+- Les administrateurs réseau
+- Les développeurs qui travaillent avec plusieurs environnements
+- Les utilisateurs qui doivent fréquemment changer de configuration réseau
 
-3. **Approches de contournement**
-   ```csharp
-   // Exemple réel du code de ce projet (IPInfo.cs, ligne 111)
-   // SIR :06-08-2015 : Cannot rely on this method because 
-   // of some classes are not implemented in Mono like : IPv4Mask
+### 🎯 Objectifs du Projet
+
+- Fournir une interface simple et intuitive pour la gestion des configurations réseau
+- Permettre la sauvegarde et le chargement de profils de configuration
+- Automatiser les tâches de configuration réseau répétitives
+- Offrir un accès rapide aux informations réseau importantes
+
+---
+
+## ✨ Fonctionnalités
+
+### 🔧 Gestion des Configurations Réseau
+
+- **Configuration IP Automatique (DHCP)**
+  - Activation/Désactivation en un clic
+  - Détection automatique des paramètres réseau
+  - Support de l'IPv4 et IPv6
+
+- **Configuration IP Manuelle**
+  - Définition de l'adresse IP
+  - Masque de sous-réseau
+  - Passerelle par défaut
+  - Validation des entrées en temps réel
+
+- **Gestion des DNS**
+  - Configuration des serveurs DNS préférés et alternatifs
+  - DNS Google (8.8.8.8, 8.8.4.4)
+  - DNS Cloudflare (1.1.1.1, 1.0.0.1)
+  - DNS personnalisés
+  - Flush du cache DNS
+
+### 💾 Profils de Configuration
+
+- **Sauvegarde de Profils**
+  - Enregistrement de configurations complètes
+  - Nommage personnalisé des profils
+  - Export au format JSON
+
+- **Chargement de Profils**
+  - Import rapide de configurations sauvegardées
+  - Application automatique des paramètres
+  - Gestion de multiples profils
+
+### 📊 Informations Réseau
+
+- **Détails de la Carte Réseau**
+  - Nom de l'interface
+  - Adresse MAC
+  - Adresse IP actuelle
+  - Masque de sous-réseau
+  - Passerelle par défaut
+  - Serveurs DNS configurés
+  - État de la connexion
+
+- **Diagnostic Réseau**
+  - Test de connectivité (Ping)
+  - Traceroute
+  - Informations détaillées sur les adaptateurs réseau
+
+### 🎨 Interface Utilisateur
+
+- **Design Moderne**
+  - Interface claire et intuitive
+  - Thème sombre/clair (à venir)
+  - Icônes informatives
+  - Messages de confirmation et d'erreur
+
+- **Facilité d'Utilisation**
+  - Navigation simple
+  - Raccourcis clavier
+  - Tooltips explicatifs
+  - Mise à jour en temps réel
+
+---
+
+## 🛠 Technologies Utilisées
+
+### Langage et Framework
+
+- **C# 7.3**
+  - Langage principal de développement
+  - Programmation orientée objet
+  - LINQ pour les requêtes de données
+
+- **.NET Framework 4.7.2**
+  - Framework stable et éprouvé
+  - Support Windows 7, 8, 10, 11
+  - Bibliothèques complètes
+
+### Interface Utilisateur
+
+- **Windows Forms**
+  - Création d'interfaces de bureau
+  - Composants natifs Windows
+  - Personnalisation avancée
+
+### Gestion Réseau
+
+- **System.Net.NetworkInformation**
+  - Accès aux informations réseau
+  - Gestion des adaptateurs réseau
+  - Statistiques et état de la connexion
+
+- **System.Management**
+  - WMI (Windows Management Instrumentation)
+  - Configuration avancée du système
+  - Gestion des paramètres réseau
+
+### Sérialisation et Stockage
+
+- **Newtonsoft.Json**
+  - Sérialisation/Désérialisation JSON
+  - Sauvegarde des profils de configuration
+  - Import/Export de données
+
+---
+
+## 📸 Captures d'Écran
+
+### Fenêtre Principale
+![Fenêtre Principale](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/ScreenShots/main-window.png)
+
+### Configuration IP
+![Configuration IP](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/ScreenShots/ip-configuration.png)
+
+### Gestion des Profils
+![Gestion des Profils](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/ScreenShots/profile-management.png)
+
+---
+
+## 🚀 Installation
+
+### Prérequis
+
+- **Système d'Exploitation**
+  - Windows 7 SP1 ou supérieur
+  - Windows Server 2008 R2 SP1 ou supérieur
+
+- **.NET Framework 4.7.2**
+  - Téléchargeable depuis [Microsoft](https://dotnet.microsoft.com/download/dotnet-framework/net472)
+  - Vérifier l'installation : `reg query "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release`
+
+- **Droits Administrateur**
+  - Nécessaire pour modifier les paramètres réseau
+  - Exécuter l'application en tant qu'administrateur
+
+### Installation depuis les Sources
+
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/Regis-Scyeur/Net-IP-Config-Classic.git
+   cd Net-IP-Config-Classic
    ```
-   - Il fallait **tester manuellement** chaque fonctionnalité sur chaque OS
-   - Créer des **fallbacks** quand les API .NET ne fonctionnaient pas
-   - Utiliser **P/Invoke** pour appeler des fonctions système natives
-   - Parser des **commandes shell** (`ifconfig`, `ipconfig`) comme solution de secours
 
-#### **Stratégies de développement cross-platform (2010-2016)**
+2. **Ouvrir le projet**
+   - Ouvrir `NetIPConfigClassic.sln` avec Visual Studio 2017 ou supérieur
+   - Restaurer les packages NuGet si nécessaire
 
-| Approche | Avantages | Inconvénients |
-|----------|-----------|---------------|
-| **Mono** | Code C# partagé | Compatibilité partielle, bugs |
-| **Xamarin** | UI natives iOS/Android | Coût élevé (license payante) |
-| **Java** | Vrai cross-platform | Pas de C#, performance |
-| **C/C++** | Performance maximale | Complexité, pas de GC |
-| **Commandes shell** | Toujours disponible | Fragile, parsing manuel |
+3. **Compiler le projet**
+   - Configuration : Release
+   - Plateforme : Any CPU ou x64
+   - Compiler (Ctrl+Shift+B)
 
-#### **Ce projet illustre ces défis**
+4. **Exécuter l'application**
+   - Localiser l'exécutable dans `bin/Release/`
+   - Clic droit → Exécuter en tant qu'administrateur
 
-```csharp
-// Détection OS avec P/Invoke (OS.cs)
-[DllImport("libc")]
-static extern int uname(IntPtr buf); // Appel système Unix
+### Installation depuis les Binaires
 
-// Fallback sur shell quand .NET échoue (IPInfo.cs)
-switch (OS.Type)
-{
-    case OSType.Windows:
-        Shell.Command = "ipconfig";
-        break;
-    case OSType.Linux:
-        Shell.Command = "ifconfig";
-        Shell.Arguments = "eth0";
-        break;
-    case OSType.MacOSX:
-        Shell.Command = "ifconfig";
-        Shell.Arguments = "en0";
-        break;
-}
-```
+1. **Télécharger la dernière version**
+   - Aller sur la page [Releases](https://github.com/Regis-Scyeur/Net-IP-Config-Classic/releases)
+   - Télécharger `NetIPConfigClassic-vX.X.X.zip`
 
-### 🚀 **La révolution .NET Core (2016)**
+2. **Extraire l'archive**
+   - Extraire le contenu dans un dossier de votre choix
+   - Exemple : `C:\Program Files\NetIPConfigClassic\`
 
-En **2016**, Microsoft a tout changé avec .NET Core :
-- ✅ Open-source complet (MIT License)
-- ✅ Cross-platform **natif** (Windows, Linux, macOS)
-- ✅ Performance supérieure à .NET Framework
-- ✅ API unifiées fonctionnant partout
-- ✅ Support officiel Microsoft sur toutes plateformes
-
-**Aujourd'hui (.NET 6/7/8)**, le code de ce projet tiendrait en quelques lignes :
-```csharp
-// Version moderne (.NET 8)
-var interfaces = NetworkInterface.GetAllNetworkInterfaces();
-var ipProps = interfaces.First().GetIPProperties();
-// Tout fonctionne partout, sans Mono ni shell !
-```
-
-### 💡 **Pourquoi ce projet reste pertinent**
-
-1. **Témoignage historique** : comprendre d'où vient .NET
-2. **Apprécier le progrès** : mesurer le chemin parcouru
-3. **Techniques avancées** : P/Invoke, parsing, détection OS
-4. **Expérience réelle** : résolution de problèmes complexes avant les outils modernes
+3. **Exécuter l'application**
+   - Clic droit sur `NetIPConfigClassic.exe`
+   - Sélectionner "Exécuter en tant qu'administrateur"
 
 ---
 
-## 💼 Impact professionnel
+## 📖 Utilisation
 
-Ce projet démontre une expertise technique acquise à une époque où le développement cross-platform .NET nécessitait :
+### Démarrage Rapide
 
-**Compétences techniques mises en œuvre** :
-- 🔧 **Interopérabilité système** : P/Invoke pour appels natifs Unix/Windows
-- 🌍 **Gestion multi-plateforme** : Mono, .NET Framework, différences d'implémentation
-- 🎯 **Architecture robuste** : Fallbacks, gestion d'erreurs, parsing shell multi-OS
-- 📐 **Design patterns** : Séparation des préoccupations (Forms, Web, MVC, Tools)
+1. **Lancer l'application**
+   - Exécuter en tant qu'administrateur
+   - L'application détecte automatiquement vos cartes réseau
 
-**Valeur pour l'écosystème .NET** :
-- ✅ Témoignage de l'évolution de la plateforme (Framework → Core → Modern)
-- ✅ Documentation des défis techniques de l'époque pré-.NET Core
-- ✅ Base de référence pour comprendre les migrations legacy
+2. **Sélectionner une carte réseau**
+   - Choisir l'adaptateur à configurer dans la liste déroulante
+   - Les informations actuelles s'affichent automatiquement
 
-**Applications pratiques** :
-- Diagnostic réseau sur infrastructures hétérogènes
-- Formation aux concepts cross-platform .NET
-- Référence pour migrations d'applications legacy
+3. **Configurer les paramètres**
+   - **Mode DHCP** : Cocher "Obtenir une adresse IP automatiquement"
+   - **Mode Manuel** : Décocher et remplir les champs (IP, Masque, Passerelle)
+
+4. **Appliquer les modifications**
+   - Cliquer sur "Appliquer"
+   - Confirmer les changements
+   - Attendre la confirmation
+
+### Gestion des Profils
+
+#### Créer un Profil
+
+1. Configurer les paramètres réseau souhaités
+2. Cliquer sur "Sauvegarder le profil"
+3. Entrer un nom descriptif (ex: "Bureau", "Maison", "VPN")
+4. Confirmer la sauvegarde
+
+#### Charger un Profil
+
+1. Cliquer sur "Charger un profil"
+2. Sélectionner le profil dans la liste
+3. Confirmer l'application des paramètres
+4. Les modifications sont appliquées automatiquement
+
+#### Supprimer un Profil
+
+1. Cliquer sur "Gérer les profils"
+2. Sélectionner le profil à supprimer
+3. Cliquer sur "Supprimer"
+4. Confirmer la suppression
+
+### Configuration DNS
+
+#### DNS Prédéfinis
+
+- **Google DNS**
+  - Préféré : 8.8.8.8
+  - Alternatif : 8.8.4.4
+
+- **Cloudflare DNS**
+  - Préféré : 1.1.1.1
+  - Alternatif : 1.0.0.1
+
+#### DNS Personnalisés
+
+1. Sélectionner "DNS personnalisé"
+2. Entrer les adresses DNS
+3. Cliquer sur "Appliquer"
+
+#### Flush Cache DNS
+
+1. Cliquer sur "Outils"
+2. Sélectionner "Flush DNS Cache"
+3. Confirmer l'opération
+
+### Diagnostic Réseau
+
+#### Test de Connectivité
+
+1. Aller dans l'onglet "Diagnostic"
+2. Entrer une adresse (ex: google.com)
+3. Cliquer sur "Ping"
+4. Analyser les résultats
+
+#### Traceroute
+
+1. Dans l'onglet "Diagnostic"
+2. Entrer l'adresse de destination
+3. Cliquer sur "Traceroute"
+4. Observer le chemin réseau
 
 ---
 
-## 🚀 Fonctionnalités
+## ⚙ Configuration
 
-- ✅ Détection automatique du système d'exploitation (Windows/Linux/macOS)
-- ✅ Récupération des informations réseau via : 
-  - Commandes shell natives (`ipconfig`, `ifconfig`)
-  - API .NET Framework (avec fallback pour Mono)
-- ✅ Trois interfaces utilisateur :
-  - **Application Windows Forms** - Interface graphique native
-  - **Application Web ASP.NET** - Interface web responsive avec Bootstrap
-  - **Application MVC ASP.NET** - Architecture MVC complète
+### Fichiers de Configuration
 
-## 📸 Captures d'écran
-
-### Windows
-![Windows ScreenShot](https://raw.githubusercontent.com/Regis-Scyeur/NetIPConfig/master/ScreenShots/NetIPConfig-Windows.PNG)
-
-### Linux
-![Linux ScreenShot](https://raw.githubusercontent.com/Regis-Scyeur/NetIPConfig/master/ScreenShots/NetIpConfig-Linux.png)
-
-### macOS
-![MacOSX ScreenShot](https://raw.githubusercontent.com/Regis-Scyeur/NetIPConfig/master/ScreenShots/NetIPConfig-MacOSX.png)
-
-## 🏗️ Structure du projet
-
+Les fichiers de configuration sont stockés dans :
 ```
-NetIPConfig/
-├── ZebraPuma.Forms.NetIPConfig/     # Application Windows Forms
-├── ZebraPuma.Web.NetIPConfig/       # Application Web ASP.NET
-├── ZebraPuma.Mvc.NetIPConfig/       # Application ASP.NET MVC
-└── ZebraPuma.Tools.dll/             # Bibliothèque partagée
-    ├── IPInfo.cs                    # Récupération des infos réseau
-    ├── OS.cs                        # Détection du système d'exploitation
-    ├── Shell.cs                     # Exécution de commandes shell
-    └── ImageHelper.cs               # Utilitaires graphiques
+%APPDATA%\NetIPConfigClassic\
+├── config.json          # Configuration de l'application
+├── profiles\            # Profils sauvegardés
+│   ├── profil1.json
+│   ├── profil2.json
+│   └── ...
+└── logs\                # Fichiers de logs
+    └── app.log
 ```
 
-## 🔧 Prérequis
+### Structure d'un Profil
 
-- **Windows** : Visual Studio 2015+ avec .NET Framework 4.8
-- **Linux/macOS** : Mono runtime (pour exécuter les applications .NET)
-
-## 🚀 Installation et exécution
-
-### Sur Windows
-
-```bash
-# Cloner le repository
-git clone https://github.com/Regis-Scyeur/NetIPConfig.git
-cd NetIPConfig
-
-# Ouvrir avec Visual Studio
-start NetIPConfig.sln
-
-# Ou compiler en ligne de commande
-msbuild NetIPConfig.sln /p:Configuration=Release
-```
-
-### Sur Linux/macOS (avec Mono)
-
-```bash
-# Installer Mono
-# Ubuntu/Debian: 
-sudo apt-get install mono-complete
-
-# macOS (avec Homebrew):
-brew install mono
-
-# Compiler le projet
-msbuild NetIPConfig.sln /p:Configuration=Release
-
-# Exécuter l'application Forms
-mono ZebraPuma.Forms.NetIPConfig/bin/Release/NetIPConfig.exe
-```
-
-### Application Web
-
-```bash
-# Lancer le serveur de développement IIS Express (Windows)
-# ou configurer avec xsp4 (Mono)
-xsp4 --port 8080 --path ZebraPuma.Web.NetIPConfig
-```
-
-## 💡 Utilisation de la bibliothèque
-
-```csharp
-using ZebraPuma.Tools;
-
-// Détecter le système d'exploitation
-OSType os = OS.Type; // Windows, Linux ou MacOSX
-string hostname = OS.HostName;
-
-// Récupérer les informations réseau via shell
-IPInfo ipInfo = IPInfo.GetIPInfo(IPsource.Shell);
-Console.WriteLine($"IP: {ipInfo.IPAddress}");
-Console.WriteLine($"Masque: {ipInfo.SubNet}");
-Console.WriteLine($"Passerelle: {ipInfo.Gateway}");
-
-// Ou via .NET Framework (peut ne pas fonctionner sur Mono)
-IPInfo ipInfo2 = IPInfo.GetIPInfo(IPsource.FrameWork);
-```
-
-## 📋 Technologies utilisées
-
-- **.NET Framework 4.8**
-- **Mono** (pour Linux/macOS)
-- **Windows Forms** (interface graphique)
-- **ASP.NET Web Forms & MVC**
-- **Bootstrap** (pour l'interface web)
-- **Regex** (parsing des sorties shell)
-- **P/Invoke** (appels natifs pour détection macOS via `uname`)
-
-## 🔍 Points techniques intéressants
-
-### Détection macOS avec P/Invoke
-```csharp
-[DllImport("libc")]
-static extern int uname(IntPtr buf);
-
-private static bool IsMacOS()
+```json
 {
-    IntPtr buf = Marshal.AllocHGlobal(8192);
-    if (uname(buf) == 0)
-    {
-        string os = Marshal.PtrToStringAnsi(buf);
-        if (os == "Darwin") return true;
-    }
-    Marshal.FreeHGlobal(buf);
-    return false;
+  "Name": "Profil Bureau",
+  "AdapterName": "Ethernet",
+  "UseDHCP": false,
+  "IPAddress": "192.168.1.100",
+  "SubnetMask": "255.255.255.0",
+  "DefaultGateway": "192.168.1.1",
+  "PreferredDNS": "8.8.8.8",
+  "AlternateDNS": "8.8.4.4",
+  "EnableIPv6": true
 }
 ```
 
-### Parsing d'adresses IP hexadécimales
-```csharp
-// Gère les formats comme "0x0100007F" (127.0.0.1 en hex)
-if (Address.StartsWith("0x"))
+### Paramètres de l'Application
+
+```json
 {
-    Address = String.Join(".", 
-        Split(Address.TrimStart("0x".ToCharArray()), 2)
-        .Select(item => int.Parse(item, NumberStyles.HexNumber)));
+  "Language": "fr-FR",
+  "Theme": "Light",
+  "AutoStart": false,
+  "MinimizeToTray": true,
+  "CheckUpdates": true,
+  "LogLevel": "Info"
 }
 ```
 
-## ⚠️ Limitations connues
+---
 
-- Sur Mono, certaines classes .NET ne sont pas implémentées (ex: `IPv4Mask`)
-- Les commandes shell utilisées peuvent varier selon les distributions Linux
-- Nécessite des privilèges appropriés pour exécuter `ifconfig` sur certains systèmes
-- Pas de support IPv6
-- Interface réseau fixe (`eth0`, `en0`) - pas de détection automatique
+## 📁 Structure du Projet
 
-## 🔮 Évolution possible : Migration vers .NET moderne
-
-Ce projet pourrait être modernisé avec .NET 8 :
-
-### Avantages d'une migration
-- ✅ Cross-platform natif (sans Mono)
-- ✅ Performance 3-5x supérieure
-- ✅ API réseau complètes et fiables
-- ✅ Support à long terme (LTS)
-- ✅ UI moderne (Avalonia, .NET MAUI, Blazor)
-
-### Exemple de code moderne
-```csharp
-// .NET 8 - Remplacerait tout le parsing shell
-using System.Net.NetworkInformation;
-
-var interfaces = NetworkInterface.GetAllNetworkInterfaces()
-    .Where(i => i.NetworkInterfaceType == NetworkInterfaceType.Ethernet 
-             && i.OperationalStatus == OperationalStatus.Up);
-
-foreach (var iface in interfaces)
-{
-    var props = iface.GetIPProperties();
-    var ipv4 = props.UnicastAddresses
-        .FirstOrDefault(a => a.Address.AddressFamily == AddressFamily.InterNetwork);
-    
-    Console.WriteLine($"IP: {ipv4?.Address}");
-    Console.WriteLine($"Masque: {ipv4?.IPv4Mask}");
-    Console.WriteLine($"Passerelle: {props.GatewayAddresses.FirstOrDefault()?.Address}");
-}
+```
+Net-IP-Config-Classic/
+├── NetIPConfigClassic/
+│   ├── Forms/
+│   │   ├── MainForm.cs
+│   │   ├── ProfileForm.cs
+│   │   └── DiagnosticForm.cs
+│   ├── Models/
+│   │   ├── NetworkAdapter.cs
+│   │   ├── NetworkProfile.cs
+│   │   └── AppSettings.cs
+│   ├── Services/
+│   │   ├── NetworkService.cs
+│   │   ├── ProfileService.cs
+│   │   └── DiagnosticService.cs
+│   ├── Utils/
+│   │   ├── Logger.cs
+│   │   ├── Validator.cs
+│   │   └── Helper.cs
+│   ├── Resources/
+│   │   └── Icons/
+│   ├── App.config
+│   └── Program.cs
+├── ScreenShots/
+├── LICENSE
+└── README.md
 ```
 
-### Roadmap potentielle
-- [ ] Migration vers .NET 8 (cross-platform natif)
-- [ ] Interface CLI avec `System.CommandLine`
-- [ ] UI moderne avec Avalonia (desktop) ou Blazor (web)
-- [ ] Support IPv6
-- [ ] Détection automatique de toutes les interfaces réseau
-- [ ] Tests unitaires
-- [ ] Package NuGet
-- [ ] Conteneurisation Docker
+---
 
-## 📚 Ressources et références
+## 🤝 Contribution
 
-- [Histoire de .NET et Mono](https://en.wikipedia.org/wiki/Mono_(software))
-- [.NET Framework vs .NET Core](https://learn.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server)
-- [Migration de .NET Framework vers .NET moderne](https://learn.microsoft.com/en-us/dotnet/core/porting/)
-- [Chronologie détaillée du projet](TIMELINE.md)
+Les contributions sont les bienvenues ! Voici comment vous pouvez contribuer :
+
+1. **Fork le projet**
+2. **Créer une branche** (`git checkout -b feature/AmazingFeature`)
+3. **Commit vos changements** (`git commit -m 'Add some AmazingFeature'`)
+4. **Push vers la branche** (`git push origin feature/AmazingFeature`)
+5. **Ouvrir une Pull Request**
+
+### Guidelines de Contribution
+
+- Suivre les conventions de code C#
+- Documenter les nouvelles fonctionnalités
+- Ajouter des tests si applicable
+- Mettre à jour la documentation
+
+---
 
 ## 📄 Licence
 
-Ce projet est un projet de démonstration à des fins éducatives.
+Ce projet est sous licence MIT. Voir [LICENSE](LICENSE) pour plus de détails.
+
+---
 
 ## 👤 Auteur
 
 **Regis-Scyeur**
+
 - GitHub: [@Regis-Scyeur](https://github.com/Regis-Scyeur)
-- Expérience .NET : Framework (2010-2023) → .NET Core/Modern (2016-présent)
+- Email: [votre-email@example.com](mailto:votre-email@example.com)
 
 ---
 
 <div align="center">
 
-**⭐ Projet créé en 2015 - Témoin de l'évolution .NET ⭐**
-
-*De l'ère Mono au .NET moderne : un voyage de 10 ans dans l'écosystème .NET*
+**⭐ Si vous aimez ce projet, n'hésitez pas à lui donner une étoile ! ⭐**
 
 </div>
