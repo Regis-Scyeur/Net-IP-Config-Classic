@@ -1,17 +1,11 @@
 # .gitattributes pour Net-IP-Config-Classic
 # Correction de la détection de langage GitHub
 
-# Marquer les bibliothèques JavaScript tierces comme "vendored" (non comptabilisées)
-Scripts/jquery*.js linguist-vendored
-Scripts/bootstrap*.js linguist-vendored
-Scripts/modernizr*.js linguist-vendored
-Scripts/respond*.js linguist-vendored
-Scripts/lib/* linguist-vendored
-Scripts/libs/* linguist-vendored
-Content/bootstrap* linguist-vendored
-Content/Scripts/* linguist-vendored
+# Marquer TOUS les fichiers JavaScript dans Scripts/ comme "vendored" (non comptabilisés)
+Scripts/*.js linguist-vendored
+Scripts/**/*.js linguist-vendored
 
-# Exclure les fichiers JavaScript minifiés
+# Fichiers minifiés partout dans le projet
 *.min.js linguist-vendored
 *.bundle.js linguist-vendored
 
