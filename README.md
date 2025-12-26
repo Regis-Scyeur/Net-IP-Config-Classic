@@ -4,7 +4,7 @@
 
 [![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-blue)](https://dotnet.microsoft.com/)
 [![Mono](https://img.shields.io/badge/Mono-Compatible-green)](https://www.mono-project.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow. svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Un projet créé en **2015** pour démontrer le développement cross-platform avec .NET Framework et Mono, permettant d'afficher les informations réseau (adresse IP, masque de sous-réseau, passerelle) sur Windows, Linux et macOS.
 
