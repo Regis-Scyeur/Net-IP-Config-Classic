@@ -4,6 +4,8 @@
 
 [![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-blue)](https://dotnet.microsoft.com/)
 [![Mono](https://img.shields.io/badge/Mono-Compatible-green)](https://www.mono-project.com/)
+[![Since](https://img.shields.io/badge/Since-2015-blue)](https://github.com/Regis-Scyeur/NetIPConfig)
+[![Era](https://img.shields.io/badge/Era-Pre_.NET_Core-orange)](https://github.com/Regis-Scyeur/NetIPConfig)
 [![License](https://img.shields.io/badge/license-Educational-lightgrey)](LICENSE)
 
 Un projet créé en **2015** pour démontrer le développement cross-platform avec .NET Framework et Mono, permettant d'afficher les informations réseau (adresse IP, masque de sous-réseau, passerelle) sur Windows, Linux et macOS.
@@ -103,6 +105,28 @@ var ipProps = interfaces.First().GetIPProperties();
 2. **Apprécier le progrès** : mesurer le chemin parcouru
 3. **Techniques avancées** : P/Invoke, parsing, détection OS
 4. **Expérience réelle** : résolution de problèmes complexes avant les outils modernes
+
+---
+
+## 💼 Impact professionnel
+
+Ce projet démontre une expertise technique acquise à une époque où le développement cross-platform .NET nécessitait :
+
+**Compétences techniques mises en œuvre** :
+- 🔧 **Interopérabilité système** : P/Invoke pour appels natifs Unix/Windows
+- 🌍 **Gestion multi-plateforme** : Mono, .NET Framework, différences d'implémentation
+- 🎯 **Architecture robuste** : Fallbacks, gestion d'erreurs, parsing shell multi-OS
+- 📐 **Design patterns** : Séparation des préoccupations (Forms, Web, MVC, Tools)
+
+**Valeur pour l'écosystème .NET** :
+- ✅ Témoignage de l'évolution de la plateforme (Framework → Core → Modern)
+- ✅ Documentation des défis techniques de l'époque pré-.NET Core
+- ✅ Base de référence pour comprendre les migrations legacy
+
+**Applications pratiques** :
+- Diagnostic réseau sur infrastructures hétérogènes
+- Formation aux concepts cross-platform .NET
+- Référence pour migrations d'applications legacy
 
 ---
 
@@ -303,6 +327,7 @@ foreach (var iface in interfaces)
 - [Histoire de .NET et Mono](https://en.wikipedia.org/wiki/Mono_(software))
 - [.NET Framework vs .NET Core](https://learn.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server)
 - [Migration de .NET Framework vers .NET moderne](https://learn.microsoft.com/en-us/dotnet/core/porting/)
+- [Chronologie détaillée du projet](TIMELINE.md)
 
 ## 📄 Licence
 
