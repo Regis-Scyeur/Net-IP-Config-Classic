@@ -1,63 +1,36 @@
-###############################################################################
-# Set default behavior to automatically normalize line endings.
-###############################################################################
-* text=auto
+# .gitattributes pour Net-IP-Config-Classic
+# Correction de la détection de langage GitHub
 
-###############################################################################
-# Set default behavior for command prompt diff.
-#
-# This is need for earlier builds of msysgit that does not have it on by
-# default for csharp files.
-# Note: This is only used by command line
-###############################################################################
-#*.cs     diff=csharp
+# Marquer les bibliothèques JavaScript tierces comme "vendored" (non comptabilisées)
+Scripts/jquery*.js linguist-vendored
+Scripts/bootstrap*.js linguist-vendored
+Scripts/modernizr*.js linguist-vendored
+Scripts/respond*.js linguist-vendored
+Scripts/lib/* linguist-vendored
+Scripts/libs/* linguist-vendored
+Content/bootstrap* linguist-vendored
+Content/Scripts/* linguist-vendored
 
-###############################################################################
-# Set the merge driver for project and solution files
-#
-# Merging from the command prompt will add diff markers to the files if there
-# are conflicts (Merging from VS is not affected by the settings below, in VS
-# the diff markers are never inserted). Diff markers may cause the following 
-# file extensions to fail to load in VS. An alternative would be to treat
-# these files as binary and thus will always conflict and require user
-# intervention with every merge. To do so, just uncomment the entries below
-###############################################################################
-#*.sln       merge=binary
-#*.csproj    merge=binary
-#*.vbproj    merge=binary
-#*.vcxproj   merge=binary
-#*.vcproj    merge=binary
-#*.dbproj    merge=binary
-#*.fsproj    merge=binary
-#*.lsproj    merge=binary
-#*.wixproj   merge=binary
-#*.modelproj merge=binary
-#*.sqlproj   merge=binary
-#*.wwaproj   merge=binary
+# Exclure les fichiers JavaScript minifiés
+*.min.js linguist-vendored
+*.bundle.js linguist-vendored
 
-###############################################################################
-# behavior for image files
-#
-# image files are treated as binary by default.
-###############################################################################
-#*.jpg   binary
-#*.png   binary
-#*.gif   binary
+# Marquer explicitement les fichiers .NET comme prioritaires
+*.cs linguist-language=C#
+*.csproj linguist-language=C#
+*.aspx linguist-language=ASP.NET
+*.ascx linguist-language=ASP.NET
+*.asax linguist-language=ASP.NET
+*.cshtml linguist-language=C#
+*.vbhtml linguist-language=VB.NET
+*.Master linguist-language=ASP.NET
+*.ashx linguist-language=C#
+*.asmx linguist-language=C#
 
-###############################################################################
-# diff behavior for common document formats
-# 
-# Convert binary document formats to text before diffing them. This feature
-# is only available from the command line. Turn it on by uncommenting the 
-# entries below.
-###############################################################################
-#*.doc   diff=astextplain
-#*.DOC   diff=astextplain
-#*.docx  diff=astextplain
-#*.DOCX  diff=astextplain
-#*.dot   diff=astextplain
-#*.DOT   diff=astextplain
-#*.pdf   diff=astextplain
-#*.PDF   diff=astextplain
-#*.rtf   diff=astextplain
-#*.RTF   diff=astextplain
+# Fichiers de configuration .NET
+*.config linguist-language=XML
+Web.config linguist-language=XML
+App.config linguist-language=XML
+
+# Documentation
+*.md linguist-documentation
