@@ -1,272 +1,325 @@
-# Net IP Config Classic
+# NetIPConfig
 
-Application Windows Forms pour la configuration réseau et le diagnostic IP.
+**Outil multi-plateforme de configuration réseau IP**
 
-## Badges
+[![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-blue)](https://dotnet.microsoft.com/)
+[![Mono](https://img.shields.io/badge/Mono-Compatible-green)](https://www.mono-project.com/)
+[![License](https://img.shields.io/badge/license-Educational-lightgrey)](LICENSE)
 
-![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.7.2-blue)
-![Windows Forms](https://img.shields.io/badge/Windows%20Forms-C%23-purple)
-![Version](https://img.shields.io/badge/version-1.0.0-green)
-![License](https://img.shields.io/badge/license-MIT-yellow)
+Un projet créé en **2015** pour démontrer le développement cross-platform avec .NET Framework et Mono, permettant d'afficher les informations réseau (adresse IP, masque de sous-réseau, passerelle) sur Windows, Linux et macOS.
 
-## 📋 Table des matières
-
-- [Description](#description)
-- [Fonctionnalités](#fonctionnalités)
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Structure du projet](#structure-du-projet)
-- [Captures d'écran](#captures-décran)
-- [Technologies utilisées](#technologies-utilisées)
-- [Contribuer](#contribuer)
-- [Licence](#licence)
-- [Auteur](#auteur)
-
-## Description
-
-Net IP Config Classic est une application Windows Forms développée en C# qui permet de :
-- Configurer les paramètres réseau (IP, DNS, passerelle)
-- Effectuer des diagnostics réseau (ping, traceroute, lookup DNS)
-- Gérer les profils de configuration réseau
-- Afficher les informations détaillées des cartes réseau
-
-## ✨ Fonctionnalités
-
-### Configuration réseau
-- ✅ Configuration IP statique ou DHCP
-- ✅ Configuration DNS (primaire et secondaire)
-- ✅ Configuration de la passerelle par défaut
-- ✅ Sélection de la carte réseau à configurer
-- ✅ Validation des adresses IP saisies
-- ✅ Application immédiate des changements
-
-### Diagnostic réseau
-- 🔍 **Ping** : Test de connectivité réseau
-- 🔍 **Traceroute** : Traçage du chemin réseau
-- 🔍 **DNS Lookup** : Résolution de noms de domaine
-- 🔍 **Informations système** : Affichage des détails des cartes réseau
-
-### Gestion de profils
-- 💾 Sauvegarde de profils de configuration
-- 📂 Chargement rapide de profils existants
-- 🗑️ Suppression de profils
-- 📝 Export/Import de profils
-
-### Interface utilisateur
-- 🎨 Interface moderne et intuitive
-- 📊 Affichage en temps réel des informations
-- 🔔 Notifications et messages d'état
-- 📋 Logs détaillés des opérations
-
-## 🔧 Prérequis
-
-- Windows 7 ou supérieur
-- .NET Framework 4.7.2 ou supérieur
-- Droits administrateur (pour modifier la configuration réseau)
-
-## 📥 Installation
-
-### Option 1 : Installation depuis les releases
-1. Téléchargez la dernière release depuis la page [Releases](https://github.com/Regis-Scyeur/Net-IP-Config-Classic/releases)
-2. Extrayez l'archive ZIP
-3. Lancez `NetIPConfig.exe` en tant qu'administrateur
-
-### Option 2 : Compilation depuis les sources
-1. Clonez le dépôt :
-```bash
-git clone https://github.com/Regis-Scyeur/Net-IP-Config-Classic.git
-```
-
-2. Ouvrez le projet dans Visual Studio 2019 ou supérieur
-
-3. Restaurez les packages NuGet si nécessaire
-
-4. Compilez le projet en mode Release
-
-5. L'exécutable se trouvera dans `bin/Release/`
-
-## 🚀 Utilisation
-
-### Lancement de l'application
-
-**Important** : L'application doit être lancée avec des droits administrateur pour pouvoir modifier la configuration réseau.
-
-1. Clic droit sur `NetIPConfig.exe`
-2. Sélectionnez "Exécuter en tant qu'administrateur"
-
-### Configuration d'une carte réseau
-
-1. Sélectionnez la carte réseau dans la liste déroulante
-2. Choisissez entre DHCP ou IP statique
-3. Si IP statique :
-   - Entrez l'adresse IP
-   - Entrez le masque de sous-réseau
-   - Entrez la passerelle par défaut
-   - Entrez les serveurs DNS (primaire et secondaire)
-4. Cliquez sur "Appliquer" pour enregistrer les modifications
-
-### Utilisation des outils de diagnostic
-
-#### Ping
-1. Accédez à l'onglet "Diagnostic"
-2. Entrez l'adresse IP ou le nom d'hôte
-3. Cliquez sur "Ping"
-4. Consultez les résultats dans la zone de texte
-
-#### Traceroute
-1. Accédez à l'onglet "Diagnostic"
-2. Entrez l'adresse IP ou le nom d'hôte de destination
-3. Cliquez sur "Traceroute"
-4. Suivez le chemin réseau dans les résultats
-
-#### DNS Lookup
-1. Accédez à l'onglet "Diagnostic"
-2. Entrez le nom de domaine
-3. Cliquez sur "Lookup"
-4. Visualisez les informations DNS retournées
-
-### Gestion des profils
-
-#### Sauvegarder un profil
-1. Configurez les paramètres réseau souhaités
-2. Cliquez sur "Sauvegarder le profil"
-3. Entrez un nom pour le profil
-4. Le profil est enregistré
-
-#### Charger un profil
-1. Cliquez sur "Charger un profil"
-2. Sélectionnez le profil dans la liste
-3. Les paramètres sont appliqués automatiquement
-
-## 📁 Structure du projet
-
-```
-Net-IP-Config-Classic/
-│
-├── NetIPConfig/
-│   ├── Forms/
-│   │   ├── MainForm.cs              # Formulaire principal
-│   │   ├── MainForm.Designer.cs
-│   │   ├── DiagnosticForm.cs        # Formulaire de diagnostic
-│   │   └── ProfileManagerForm.cs    # Gestion des profils
-│   │
-│   ├── Classes/
-│   │   ├── NetworkAdapter.cs        # Classe pour la gestion des cartes réseau
-│   │   ├── NetworkConfig.cs         # Configuration réseau
-│   │   ├── NetworkDiagnostics.cs    # Outils de diagnostic
-│   │   └── ProfileManager.cs        # Gestion des profils
-│   │
-│   ├── Resources/
-│   │   └── Icons/                   # Icônes de l'application
-│   │
-│   ├── App.config                   # Configuration de l'application
-│   ├── Program.cs                   # Point d'entrée
-│   └── NetIPConfig.csproj          # Fichier projet
-│
-├── README.md
-├── LICENSE
-└── .gitignore
-```
-
-## 📸 Captures d'écran
-
-### Fenêtre principale
-![Main Window](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/screenshots/main-window.png)
-
-### Configuration réseau
-![Network Config](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/screenshots/network-config.png)
-
-### Outils de diagnostic
-![Diagnostic Tools](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/screenshots/diagnostic-tools.png)
-
-### Gestion des profils
-![Profile Manager](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/screenshots/profile-manager.png)
-
-## 🛠️ Technologies utilisées
-
-- **Langage** : C# 7.3
-- **Framework** : .NET Framework 4.7.2
-- **Interface** : Windows Forms
-- **IDE** : Visual Studio 2019+
-
-### Bibliothèques principales
-
-- `System.Net.NetworkInformation` : Pour les informations réseau
-- `System.Management` : Pour l'accès WMI et la configuration réseau
-- `System.Diagnostics` : Pour l'exécution de commandes système
-
-## 🤝 Contribuer
-
-Les contributions sont les bienvenues ! Voici comment contribuer :
-
-1. Forkez le projet
-2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
-3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Poussez vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrez une Pull Request
-
-### Guidelines de contribution
-
-- Respectez le style de code existant
-- Ajoutez des commentaires pour le code complexe
-- Testez vos modifications avant de soumettre
-- Mettez à jour la documentation si nécessaire
-
-## 📋 Roadmap
-
-- [ ] Support de IPv6
-- [ ] Interface en dark mode
-- [ ] Export des logs en fichier
-- [ ] Planification de changements de profils
-- [ ] Support multi-langue
-- [ ] Interface web pour gestion à distance
-- [ ] Notifications système
-- [ ] Sauvegarde automatique de configuration
-
-## 🐛 Problèmes connus
-
-- Nécessite des droits administrateur pour fonctionner
-- Peut ne pas détecter certaines cartes réseau virtuelles
-- Le traceroute peut être lent sur certains réseaux
-
-## 📝 Changelog
-
-### Version 1.0.0 (2024-01-15)
-- ✨ Release initiale
-- ✅ Configuration IP/DNS/Gateway
-- ✅ Outils de diagnostic (ping, traceroute, DNS lookup)
-- ✅ Gestion de profils
-- ✅ Interface utilisateur moderne
-
-## 🔐 Sécurité
-
-Si vous découvrez une faille de sécurité, veuillez nous envoyer un email à [votre-email] plutôt que d'utiliser le système d'issues.
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-## 👤 Auteur
-
-**Regis Scyeur**
-- GitHub: [@Regis-Scyeur](https://github.com/Regis-Scyeur)
-
-## 🙏 Remerciements
-
-- Merci à tous les contributeurs du projet
-- Inspiré par les outils réseau Windows classiques
-- Communauté .NET pour les ressources et la documentation
-
-## 📞 Support
-
-Pour obtenir de l'aide :
-- 📫 Ouvrez une issue sur GitHub
-- 💬 Consultez la documentation
-- 🌐 Visitez la page wiki du projet
+> 📜 **Note historique** : Ce projet témoigne d'une époque où le développement multi-plateforme en .NET était un véritable défi technique. Voir la section [Contexte historique](#-contexte-historique--le-cross-platform-avant-net-core) pour comprendre les enjeux de l'époque.
 
 ---
 
-⭐ Si ce projet vous a été utile, n'hésitez pas à lui donner une étoile !
+## 📖 Contexte historique : Le cross-platform avant .NET Core
 
-**Note** : Ce projet est destiné à des fins éducatives et de démonstration. Utilisez-le à vos propres risques sur des réseaux de production.
+### 🕰️ **L'époque (2002-2016)**
+
+Lorsque ce projet a été créé en 2015, le développement multi-plateforme en .NET était **radicalement différent** d'aujourd'hui :
+
+#### **Les défis techniques**
+
+1. **.NET Framework = Windows uniquement**
+   - .NET Framework (1.0 à 4.8) était exclusivement conçu pour Windows
+   - Impossible d'exécuter du code C# nativement sur Linux ou macOS
+   - Les développeurs devaient choisir entre .NET (Windows) ou Java (multi-plateforme)
+
+2. **Mono : la solution communautaire**
+   - **Mono** était une implémentation open-source indépendante de .NET Framework
+   - Créé par Miguel de Icaza (Xamarin) en 2004
+   - Reverse-engineering des API Microsoft pour les recréer sur Linux/macOS
+   - **Problèmes majeurs** : 
+     - ❌ Compatibilité partielle (certaines classes manquantes ou non implémentées)
+     - ❌ Performances inférieures à .NET Framework natif
+     - ❌ Bugs spécifiques à chaque plateforme
+     - ❌ Documentation limitée et communauté restreinte
+
+3. **Approches de contournement**
+   ```csharp
+   // Exemple réel du code de ce projet (IPInfo.cs, ligne 111)
+   // SIR :06-08-2015 : Cannot rely on this method because 
+   // of some classes are not implemented in Mono like : IPv4Mask
+   ```
+   - Il fallait **tester manuellement** chaque fonctionnalité sur chaque OS
+   - Créer des **fallbacks** quand les API .NET ne fonctionnaient pas
+   - Utiliser **P/Invoke** pour appeler des fonctions système natives
+   - Parser des **commandes shell** (`ifconfig`, `ipconfig`) comme solution de secours
+
+#### **Stratégies de développement cross-platform (2010-2016)**
+
+| Approche | Avantages | Inconvénients |
+|----------|-----------|---------------|
+| **Mono** | Code C# partagé | Compatibilité partielle, bugs |
+| **Xamarin** | UI natives iOS/Android | Coût élevé (license payante) |
+| **Java** | Vrai cross-platform | Pas de C#, performance |
+| **C/C++** | Performance maximale | Complexité, pas de GC |
+| **Commandes shell** | Toujours disponible | Fragile, parsing manuel |
+
+#### **Ce projet illustre ces défis**
+
+```csharp
+// Détection OS avec P/Invoke (OS.cs)
+[DllImport("libc")]
+static extern int uname(IntPtr buf); // Appel système Unix
+
+// Fallback sur shell quand .NET échoue (IPInfo.cs)
+switch (OS.Type)
+{
+    case OSType.Windows:
+        Shell.Command = "ipconfig";
+        break;
+    case OSType.Linux:
+        Shell.Command = "ifconfig";
+        Shell.Arguments = "eth0";
+        break;
+    case OSType.MacOSX:
+        Shell.Command = "ifconfig";
+        Shell.Arguments = "en0";
+        break;
+}
+```
+
+### 🚀 **La révolution .NET Core (2016)**
+
+En **2016**, Microsoft a tout changé avec .NET Core :
+- ✅ Open-source complet (MIT License)
+- ✅ Cross-platform **natif** (Windows, Linux, macOS)
+- ✅ Performance supérieure à .NET Framework
+- ✅ API unifiées fonctionnant partout
+- ✅ Support officiel Microsoft sur toutes plateformes
+
+**Aujourd'hui (.NET 6/7/8)**, le code de ce projet tiendrait en quelques lignes :
+```csharp
+// Version moderne (.NET 8)
+var interfaces = NetworkInterface.GetAllNetworkInterfaces();
+var ipProps = interfaces.First().GetIPProperties();
+// Tout fonctionne partout, sans Mono ni shell !
+```
+
+### 💡 **Pourquoi ce projet reste pertinent**
+
+1. **Témoignage historique** : comprendre d'où vient .NET
+2. **Apprécier le progrès** : mesurer le chemin parcouru
+3. **Techniques avancées** : P/Invoke, parsing, détection OS
+4. **Expérience réelle** : résolution de problèmes complexes avant les outils modernes
+
+---
+
+## 🚀 Fonctionnalités
+
+- ✅ Détection automatique du système d'exploitation (Windows/Linux/macOS)
+- ✅ Récupération des informations réseau via : 
+  - Commandes shell natives (`ipconfig`, `ifconfig`)
+  - API .NET Framework (avec fallback pour Mono)
+- ✅ Trois interfaces utilisateur :
+  - **Application Windows Forms** - Interface graphique native
+  - **Application Web ASP.NET** - Interface web responsive avec Bootstrap
+  - **Application MVC ASP.NET** - Architecture MVC complète
+
+## 📸 Captures d'écran
+
+### Windows
+![Windows ScreenShot](https://raw.githubusercontent.com/Regis-Scyeur/NetIPConfig/master/ScreenShots/NetIPConfig-Windows.PNG)
+
+### Linux
+![Linux ScreenShot](https://raw.githubusercontent.com/Regis-Scyeur/NetIPConfig/master/ScreenShots/NetIpConfig-Linux.png)
+
+### macOS
+![MacOSX ScreenShot](https://raw.githubusercontent.com/Regis-Scyeur/NetIPConfig/master/ScreenShots/NetIPConfig-MacOSX.png)
+
+## 🏗️ Structure du projet
+
+```
+NetIPConfig/
+├── ZebraPuma.Forms.NetIPConfig/     # Application Windows Forms
+├── ZebraPuma.Web.NetIPConfig/       # Application Web ASP.NET
+├── ZebraPuma.Mvc.NetIPConfig/       # Application ASP.NET MVC
+└── ZebraPuma.Tools.dll/             # Bibliothèque partagée
+    ├── IPInfo.cs                    # Récupération des infos réseau
+    ├── OS.cs                        # Détection du système d'exploitation
+    ├── Shell.cs                     # Exécution de commandes shell
+    └── ImageHelper.cs               # Utilitaires graphiques
+```
+
+## 🔧 Prérequis
+
+- **Windows** : Visual Studio 2015+ avec .NET Framework 4.8
+- **Linux/macOS** : Mono runtime (pour exécuter les applications .NET)
+
+## 🚀 Installation et exécution
+
+### Sur Windows
+
+```bash
+# Cloner le repository
+git clone https://github.com/Regis-Scyeur/NetIPConfig.git
+cd NetIPConfig
+
+# Ouvrir avec Visual Studio
+start NetIPConfig.sln
+
+# Ou compiler en ligne de commande
+msbuild NetIPConfig.sln /p:Configuration=Release
+```
+
+### Sur Linux/macOS (avec Mono)
+
+```bash
+# Installer Mono
+# Ubuntu/Debian: 
+sudo apt-get install mono-complete
+
+# macOS (avec Homebrew):
+brew install mono
+
+# Compiler le projet
+msbuild NetIPConfig.sln /p:Configuration=Release
+
+# Exécuter l'application Forms
+mono ZebraPuma.Forms.NetIPConfig/bin/Release/NetIPConfig.exe
+```
+
+### Application Web
+
+```bash
+# Lancer le serveur de développement IIS Express (Windows)
+# ou configurer avec xsp4 (Mono)
+xsp4 --port 8080 --path ZebraPuma.Web.NetIPConfig
+```
+
+## 💡 Utilisation de la bibliothèque
+
+```csharp
+using ZebraPuma.Tools;
+
+// Détecter le système d'exploitation
+OSType os = OS.Type; // Windows, Linux ou MacOSX
+string hostname = OS.HostName;
+
+// Récupérer les informations réseau via shell
+IPInfo ipInfo = IPInfo.GetIPInfo(IPsource.Shell);
+Console.WriteLine($"IP: {ipInfo.IPAddress}");
+Console.WriteLine($"Masque: {ipInfo.SubNet}");
+Console.WriteLine($"Passerelle: {ipInfo.Gateway}");
+
+// Ou via .NET Framework (peut ne pas fonctionner sur Mono)
+IPInfo ipInfo2 = IPInfo.GetIPInfo(IPsource.FrameWork);
+```
+
+## 📋 Technologies utilisées
+
+- **.NET Framework 4.8**
+- **Mono** (pour Linux/macOS)
+- **Windows Forms** (interface graphique)
+- **ASP.NET Web Forms & MVC**
+- **Bootstrap** (pour l'interface web)
+- **Regex** (parsing des sorties shell)
+- **P/Invoke** (appels natifs pour détection macOS via `uname`)
+
+## 🔍 Points techniques intéressants
+
+### Détection macOS avec P/Invoke
+```csharp
+[DllImport("libc")]
+static extern int uname(IntPtr buf);
+
+private static bool IsMacOS()
+{
+    IntPtr buf = Marshal.AllocHGlobal(8192);
+    if (uname(buf) == 0)
+    {
+        string os = Marshal.PtrToStringAnsi(buf);
+        if (os == "Darwin") return true;
+    }
+    Marshal.FreeHGlobal(buf);
+    return false;
+}
+```
+
+### Parsing d'adresses IP hexadécimales
+```csharp
+// Gère les formats comme "0x0100007F" (127.0.0.1 en hex)
+if (Address.StartsWith("0x"))
+{
+    Address = String.Join(".", 
+        Split(Address.TrimStart("0x".ToCharArray()), 2)
+        .Select(item => int.Parse(item, NumberStyles.HexNumber)));
+}
+```
+
+## ⚠️ Limitations connues
+
+- Sur Mono, certaines classes .NET ne sont pas implémentées (ex: `IPv4Mask`)
+- Les commandes shell utilisées peuvent varier selon les distributions Linux
+- Nécessite des privilèges appropriés pour exécuter `ifconfig` sur certains systèmes
+- Pas de support IPv6
+- Interface réseau fixe (`eth0`, `en0`) - pas de détection automatique
+
+## 🔮 Évolution possible : Migration vers .NET moderne
+
+Ce projet pourrait être modernisé avec .NET 8 :
+
+### Avantages d'une migration
+- ✅ Cross-platform natif (sans Mono)
+- ✅ Performance 3-5x supérieure
+- ✅ API réseau complètes et fiables
+- ✅ Support à long terme (LTS)
+- ✅ UI moderne (Avalonia, .NET MAUI, Blazor)
+
+### Exemple de code moderne
+```csharp
+// .NET 8 - Remplacerait tout le parsing shell
+using System.Net.NetworkInformation;
+
+var interfaces = NetworkInterface.GetAllNetworkInterfaces()
+    .Where(i => i.NetworkInterfaceType == NetworkInterfaceType.Ethernet 
+             && i.OperationalStatus == OperationalStatus.Up);
+
+foreach (var iface in interfaces)
+{
+    var props = iface.GetIPProperties();
+    var ipv4 = props.UnicastAddresses
+        .FirstOrDefault(a => a.Address.AddressFamily == AddressFamily.InterNetwork);
+    
+    Console.WriteLine($"IP: {ipv4?.Address}");
+    Console.WriteLine($"Masque: {ipv4?.IPv4Mask}");
+    Console.WriteLine($"Passerelle: {props.GatewayAddresses.FirstOrDefault()?.Address}");
+}
+```
+
+### Roadmap potentielle
+- [ ] Migration vers .NET 8 (cross-platform natif)
+- [ ] Interface CLI avec `System.CommandLine`
+- [ ] UI moderne avec Avalonia (desktop) ou Blazor (web)
+- [ ] Support IPv6
+- [ ] Détection automatique de toutes les interfaces réseau
+- [ ] Tests unitaires
+- [ ] Package NuGet
+- [ ] Conteneurisation Docker
+
+## 📚 Ressources et références
+
+- [Histoire de .NET et Mono](https://en.wikipedia.org/wiki/Mono_(software))
+- [.NET Framework vs .NET Core](https://learn.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server)
+- [Migration de .NET Framework vers .NET moderne](https://learn.microsoft.com/en-us/dotnet/core/porting/)
+
+## 📄 Licence
+
+Ce projet est un projet de démonstration à des fins éducatives.
+
+## 👤 Auteur
+
+**Regis-Scyeur**
+- GitHub: [@Regis-Scyeur](https://github.com/Regis-Scyeur)
+- Expérience .NET : Framework (2010-2023) → .NET Core/Modern (2016-présent)
+
+---
+
+<div align="center">
+
+**⭐ Projet créé en 2015 - Témoin de l'évolution .NET ⭐**
+
+*De l'ère Mono au .NET moderne : un voyage de 10 ans dans l'écosystème .NET*
+
+</div>
