@@ -1,4 +1,4 @@
-# NetIPConfig
+# NetIPConfig Classic 
 
 **Outil multi-plateforme de configuration réseau IP**
 
@@ -10,7 +10,6 @@ Un projet créé en **2015** pour démontrer le développement cross-platform av
 
 > 📜 **Note historique** : Ce projet témoigne d'une époque où le développement multi-plateforme en .NET était un véritable défi technique. Voir la section [Contexte historique](#-contexte-historique--le-cross-platform-avant-net-core) pour comprendre les enjeux de l'époque.
 
----
 
 ## 📖 Contexte historique : Le cross-platform avant .NET Core
 
