@@ -1,426 +1,272 @@
-# 🌐 Net IP Config Classic
+# Net IP Config Classic
 
-<div align="center">
+Application Windows Forms pour la configuration réseau et le diagnostic IP.
 
-![Net IP Config Classic](https://img.shields.io/badge/Windows-Forms-blue?logo=windows)
-![.NET Framework](https://img.shields.io/badge/.NET-Framework%204.7.2-purple?logo=.net)
-![C#](https://img.shields.io/badge/C%23-Language-239120?logo=c-sharp)
-![Status](https://img.shields.io/badge/status-active-success)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Badges
 
-</div>
+![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.7.2-blue)
+![Windows Forms](https://img.shields.io/badge/Windows%20Forms-C%23-purple)
+![Version](https://img.shields.io/badge/version-1.0.0-green)
+![License](https://img.shields.io/badge/license-MIT-yellow)
 
----
+## 📋 Table des matières
 
-## 📋 Table des Matières
+- [Description](#description)
+- [Fonctionnalités](#fonctionnalités)
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
+- [Structure du projet](#structure-du-projet)
+- [Captures d'écran](#captures-décran)
+- [Technologies utilisées](#technologies-utilisées)
+- [Contribuer](#contribuer)
+- [Licence](#licence)
+- [Auteur](#auteur)
 
-- [À Propos](#-à-propos)
-- [Fonctionnalités](#-fonctionnalités)
-- [Technologies Utilisées](#-technologies-utilisées)
-- [Captures d'Écran](#-captures-décran)
-- [Installation](#-installation)
-- [Utilisation](#-utilisation)
-- [Configuration](#-configuration)
-- [Structure du Projet](#-structure-du-projet)
-- [Contribution](#-contribution)
-- [Licence](#-licence)
-- [Auteur](#-auteur)
+## Description
 
----
-
-## 📖 À Propos
-
-**Net IP Config Classic** est une application Windows Forms développée en C# avec .NET Framework 4.7.2. Elle permet de gérer facilement les configurations réseau de votre ordinateur, incluant les adresses IP, les serveurs DNS, et bien plus encore.
-
-Cette application est particulièrement utile pour :
-- Les administrateurs réseau
-- Les développeurs qui travaillent avec plusieurs environnements
-- Les utilisateurs qui doivent fréquemment changer de configuration réseau
-
-### 🎯 Objectifs du Projet
-
-- Fournir une interface simple et intuitive pour la gestion des configurations réseau
-- Permettre la sauvegarde et le chargement de profils de configuration
-- Automatiser les tâches de configuration réseau répétitives
-- Offrir un accès rapide aux informations réseau importantes
-
----
+Net IP Config Classic est une application Windows Forms développée en C# qui permet de :
+- Configurer les paramètres réseau (IP, DNS, passerelle)
+- Effectuer des diagnostics réseau (ping, traceroute, lookup DNS)
+- Gérer les profils de configuration réseau
+- Afficher les informations détaillées des cartes réseau
 
 ## ✨ Fonctionnalités
 
-### 🔧 Gestion des Configurations Réseau
-
-- **Configuration IP Automatique (DHCP)**
-  - Activation/Désactivation en un clic
-  - Détection automatique des paramètres réseau
-  - Support de l'IPv4 et IPv6
-
-- **Configuration IP Manuelle**
-  - Définition de l'adresse IP
-  - Masque de sous-réseau
-  - Passerelle par défaut
-  - Validation des entrées en temps réel
+### Configuration réseau
+- ✅ Configuration IP statique ou DHCP
+- ✅ Configuration DNS (primaire et secondaire)
+- ✅ Configuration de la passerelle par défaut
+- ✅ Sélection de la carte réseau à configurer
+- ✅ Validation des adresses IP saisies
+- ✅ Application immédiate des changements
 
-- **Gestion des DNS**
-  - Configuration des serveurs DNS préférés et alternatifs
-  - DNS Google (8.8.8.8, 8.8.4.4)
-  - DNS Cloudflare (1.1.1.1, 1.0.0.1)
-  - DNS personnalisés
-  - Flush du cache DNS
+### Diagnostic réseau
+- 🔍 **Ping** : Test de connectivité réseau
+- 🔍 **Traceroute** : Traçage du chemin réseau
+- 🔍 **DNS Lookup** : Résolution de noms de domaine
+- 🔍 **Informations système** : Affichage des détails des cartes réseau
 
-### 💾 Profils de Configuration
+### Gestion de profils
+- 💾 Sauvegarde de profils de configuration
+- 📂 Chargement rapide de profils existants
+- 🗑️ Suppression de profils
+- 📝 Export/Import de profils
 
-- **Sauvegarde de Profils**
-  - Enregistrement de configurations complètes
-  - Nommage personnalisé des profils
-  - Export au format JSON
+### Interface utilisateur
+- 🎨 Interface moderne et intuitive
+- 📊 Affichage en temps réel des informations
+- 🔔 Notifications et messages d'état
+- 📋 Logs détaillés des opérations
 
-- **Chargement de Profils**
-  - Import rapide de configurations sauvegardées
-  - Application automatique des paramètres
-  - Gestion de multiples profils
+## 🔧 Prérequis
 
-### 📊 Informations Réseau
+- Windows 7 ou supérieur
+- .NET Framework 4.7.2 ou supérieur
+- Droits administrateur (pour modifier la configuration réseau)
 
-- **Détails de la Carte Réseau**
-  - Nom de l'interface
-  - Adresse MAC
-  - Adresse IP actuelle
-  - Masque de sous-réseau
-  - Passerelle par défaut
-  - Serveurs DNS configurés
-  - État de la connexion
+## 📥 Installation
 
-- **Diagnostic Réseau**
-  - Test de connectivité (Ping)
-  - Traceroute
-  - Informations détaillées sur les adaptateurs réseau
+### Option 1 : Installation depuis les releases
+1. Téléchargez la dernière release depuis la page [Releases](https://github.com/Regis-Scyeur/Net-IP-Config-Classic/releases)
+2. Extrayez l'archive ZIP
+3. Lancez `NetIPConfig.exe` en tant qu'administrateur
 
-### 🎨 Interface Utilisateur
+### Option 2 : Compilation depuis les sources
+1. Clonez le dépôt :
+```bash
+git clone https://github.com/Regis-Scyeur/Net-IP-Config-Classic.git
+```
 
-- **Design Moderne**
-  - Interface claire et intuitive
-  - Thème sombre/clair (à venir)
-  - Icônes informatives
-  - Messages de confirmation et d'erreur
+2. Ouvrez le projet dans Visual Studio 2019 ou supérieur
 
-- **Facilité d'Utilisation**
-  - Navigation simple
-  - Raccourcis clavier
-  - Tooltips explicatifs
-  - Mise à jour en temps réel
+3. Restaurez les packages NuGet si nécessaire
 
----
+4. Compilez le projet en mode Release
 
-## 🛠 Technologies Utilisées
+5. L'exécutable se trouvera dans `bin/Release/`
 
-### Langage et Framework
+## 🚀 Utilisation
 
-- **C# 7.3**
-  - Langage principal de développement
-  - Programmation orientée objet
-  - LINQ pour les requêtes de données
+### Lancement de l'application
 
-- **.NET Framework 4.7.2**
-  - Framework stable et éprouvé
-  - Support Windows 7, 8, 10, 11
-  - Bibliothèques complètes
+**Important** : L'application doit être lancée avec des droits administrateur pour pouvoir modifier la configuration réseau.
 
-### Interface Utilisateur
+1. Clic droit sur `NetIPConfig.exe`
+2. Sélectionnez "Exécuter en tant qu'administrateur"
 
-- **Windows Forms**
-  - Création d'interfaces de bureau
-  - Composants natifs Windows
-  - Personnalisation avancée
+### Configuration d'une carte réseau
 
-### Gestion Réseau
+1. Sélectionnez la carte réseau dans la liste déroulante
+2. Choisissez entre DHCP ou IP statique
+3. Si IP statique :
+   - Entrez l'adresse IP
+   - Entrez le masque de sous-réseau
+   - Entrez la passerelle par défaut
+   - Entrez les serveurs DNS (primaire et secondaire)
+4. Cliquez sur "Appliquer" pour enregistrer les modifications
 
-- **System.Net.NetworkInformation**
-  - Accès aux informations réseau
-  - Gestion des adaptateurs réseau
-  - Statistiques et état de la connexion
+### Utilisation des outils de diagnostic
 
-- **System.Management**
-  - WMI (Windows Management Instrumentation)
-  - Configuration avancée du système
-  - Gestion des paramètres réseau
-
-### Sérialisation et Stockage
-
-- **Newtonsoft.Json**
-  - Sérialisation/Désérialisation JSON
-  - Sauvegarde des profils de configuration
-  - Import/Export de données
-
----
-
-## 📸 Captures d'Écran
-
-### Fenêtre Principale
-![Fenêtre Principale](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/ScreenShots/main-window.png)
-
-### Configuration IP
-![Configuration IP](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/ScreenShots/ip-configuration.png)
-
-### Gestion des Profils
-![Gestion des Profils](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/ScreenShots/profile-management.png)
-
----
-
-## 🚀 Installation
-
-### Prérequis
-
-- **Système d'Exploitation**
-  - Windows 7 SP1 ou supérieur
-  - Windows Server 2008 R2 SP1 ou supérieur
-
-- **.NET Framework 4.7.2**
-  - Téléchargeable depuis [Microsoft](https://dotnet.microsoft.com/download/dotnet-framework/net472)
-  - Vérifier l'installation : `reg query "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release`
-
-- **Droits Administrateur**
-  - Nécessaire pour modifier les paramètres réseau
-  - Exécuter l'application en tant qu'administrateur
-
-### Installation depuis les Sources
-
-1. **Cloner le dépôt**
-   ```bash
-   git clone https://github.com/Regis-Scyeur/Net-IP-Config-Classic.git
-   cd Net-IP-Config-Classic
-   ```
-
-2. **Ouvrir le projet**
-   - Ouvrir `NetIPConfigClassic.sln` avec Visual Studio 2017 ou supérieur
-   - Restaurer les packages NuGet si nécessaire
-
-3. **Compiler le projet**
-   - Configuration : Release
-   - Plateforme : Any CPU ou x64
-   - Compiler (Ctrl+Shift+B)
-
-4. **Exécuter l'application**
-   - Localiser l'exécutable dans `bin/Release/`
-   - Clic droit → Exécuter en tant qu'administrateur
-
-### Installation depuis les Binaires
-
-1. **Télécharger la dernière version**
-   - Aller sur la page [Releases](https://github.com/Regis-Scyeur/Net-IP-Config-Classic/releases)
-   - Télécharger `NetIPConfigClassic-vX.X.X.zip`
-
-2. **Extraire l'archive**
-   - Extraire le contenu dans un dossier de votre choix
-   - Exemple : `C:\Program Files\NetIPConfigClassic\`
-
-3. **Exécuter l'application**
-   - Clic droit sur `NetIPConfigClassic.exe`
-   - Sélectionner "Exécuter en tant qu'administrateur"
-
----
-
-## 📖 Utilisation
-
-### Démarrage Rapide
-
-1. **Lancer l'application**
-   - Exécuter en tant qu'administrateur
-   - L'application détecte automatiquement vos cartes réseau
-
-2. **Sélectionner une carte réseau**
-   - Choisir l'adaptateur à configurer dans la liste déroulante
-   - Les informations actuelles s'affichent automatiquement
-
-3. **Configurer les paramètres**
-   - **Mode DHCP** : Cocher "Obtenir une adresse IP automatiquement"
-   - **Mode Manuel** : Décocher et remplir les champs (IP, Masque, Passerelle)
-
-4. **Appliquer les modifications**
-   - Cliquer sur "Appliquer"
-   - Confirmer les changements
-   - Attendre la confirmation
-
-### Gestion des Profils
-
-#### Créer un Profil
-
-1. Configurer les paramètres réseau souhaités
-2. Cliquer sur "Sauvegarder le profil"
-3. Entrer un nom descriptif (ex: "Bureau", "Maison", "VPN")
-4. Confirmer la sauvegarde
-
-#### Charger un Profil
-
-1. Cliquer sur "Charger un profil"
-2. Sélectionner le profil dans la liste
-3. Confirmer l'application des paramètres
-4. Les modifications sont appliquées automatiquement
-
-#### Supprimer un Profil
-
-1. Cliquer sur "Gérer les profils"
-2. Sélectionner le profil à supprimer
-3. Cliquer sur "Supprimer"
-4. Confirmer la suppression
-
-### Configuration DNS
-
-#### DNS Prédéfinis
-
-- **Google DNS**
-  - Préféré : 8.8.8.8
-  - Alternatif : 8.8.4.4
-
-- **Cloudflare DNS**
-  - Préféré : 1.1.1.1
-  - Alternatif : 1.0.0.1
-
-#### DNS Personnalisés
-
-1. Sélectionner "DNS personnalisé"
-2. Entrer les adresses DNS
-3. Cliquer sur "Appliquer"
-
-#### Flush Cache DNS
-
-1. Cliquer sur "Outils"
-2. Sélectionner "Flush DNS Cache"
-3. Confirmer l'opération
-
-### Diagnostic Réseau
-
-#### Test de Connectivité
-
-1. Aller dans l'onglet "Diagnostic"
-2. Entrer une adresse (ex: google.com)
-3. Cliquer sur "Ping"
-4. Analyser les résultats
+#### Ping
+1. Accédez à l'onglet "Diagnostic"
+2. Entrez l'adresse IP ou le nom d'hôte
+3. Cliquez sur "Ping"
+4. Consultez les résultats dans la zone de texte
 
 #### Traceroute
+1. Accédez à l'onglet "Diagnostic"
+2. Entrez l'adresse IP ou le nom d'hôte de destination
+3. Cliquez sur "Traceroute"
+4. Suivez le chemin réseau dans les résultats
 
-1. Dans l'onglet "Diagnostic"
-2. Entrer l'adresse de destination
-3. Cliquer sur "Traceroute"
-4. Observer le chemin réseau
+#### DNS Lookup
+1. Accédez à l'onglet "Diagnostic"
+2. Entrez le nom de domaine
+3. Cliquez sur "Lookup"
+4. Visualisez les informations DNS retournées
 
----
+### Gestion des profils
 
-## ⚙ Configuration
+#### Sauvegarder un profil
+1. Configurez les paramètres réseau souhaités
+2. Cliquez sur "Sauvegarder le profil"
+3. Entrez un nom pour le profil
+4. Le profil est enregistré
 
-### Fichiers de Configuration
+#### Charger un profil
+1. Cliquez sur "Charger un profil"
+2. Sélectionnez le profil dans la liste
+3. Les paramètres sont appliqués automatiquement
 
-Les fichiers de configuration sont stockés dans :
-```
-%APPDATA%\NetIPConfigClassic\
-├── config.json          # Configuration de l'application
-├── profiles\            # Profils sauvegardés
-│   ├── profil1.json
-│   ├── profil2.json
-│   └── ...
-└── logs\                # Fichiers de logs
-    └── app.log
-```
-
-### Structure d'un Profil
-
-```json
-{
-  "Name": "Profil Bureau",
-  "AdapterName": "Ethernet",
-  "UseDHCP": false,
-  "IPAddress": "192.168.1.100",
-  "SubnetMask": "255.255.255.0",
-  "DefaultGateway": "192.168.1.1",
-  "PreferredDNS": "8.8.8.8",
-  "AlternateDNS": "8.8.4.4",
-  "EnableIPv6": true
-}
-```
-
-### Paramètres de l'Application
-
-```json
-{
-  "Language": "fr-FR",
-  "Theme": "Light",
-  "AutoStart": false,
-  "MinimizeToTray": true,
-  "CheckUpdates": true,
-  "LogLevel": "Info"
-}
-```
-
----
-
-## 📁 Structure du Projet
+## 📁 Structure du projet
 
 ```
 Net-IP-Config-Classic/
-├── NetIPConfigClassic/
+│
+├── NetIPConfig/
 │   ├── Forms/
-│   │   ├── MainForm.cs
-│   │   ├── ProfileForm.cs
-│   │   └── DiagnosticForm.cs
-│   ├── Models/
-│   │   ├── NetworkAdapter.cs
-│   │   ├── NetworkProfile.cs
-│   │   └── AppSettings.cs
-│   ├── Services/
-│   │   ├── NetworkService.cs
-│   │   ├── ProfileService.cs
-│   │   └── DiagnosticService.cs
-│   ├── Utils/
-│   │   ├── Logger.cs
-│   │   ├── Validator.cs
-│   │   └── Helper.cs
+│   │   ├── MainForm.cs              # Formulaire principal
+│   │   ├── MainForm.Designer.cs
+│   │   ├── DiagnosticForm.cs        # Formulaire de diagnostic
+│   │   └── ProfileManagerForm.cs    # Gestion des profils
+│   │
+│   ├── Classes/
+│   │   ├── NetworkAdapter.cs        # Classe pour la gestion des cartes réseau
+│   │   ├── NetworkConfig.cs         # Configuration réseau
+│   │   ├── NetworkDiagnostics.cs    # Outils de diagnostic
+│   │   └── ProfileManager.cs        # Gestion des profils
+│   │
 │   ├── Resources/
-│   │   └── Icons/
-│   ├── App.config
-│   └── Program.cs
-├── ScreenShots/
+│   │   └── Icons/                   # Icônes de l'application
+│   │
+│   ├── App.config                   # Configuration de l'application
+│   ├── Program.cs                   # Point d'entrée
+│   └── NetIPConfig.csproj          # Fichier projet
+│
+├── README.md
 ├── LICENSE
-└── README.md
+└── .gitignore
 ```
 
----
+## 📸 Captures d'écran
 
-## 🤝 Contribution
+### Fenêtre principale
+![Main Window](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/screenshots/main-window.png)
 
-Les contributions sont les bienvenues ! Voici comment vous pouvez contribuer :
+### Configuration réseau
+![Network Config](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/screenshots/network-config.png)
 
-1. **Fork le projet**
-2. **Créer une branche** (`git checkout -b feature/AmazingFeature`)
-3. **Commit vos changements** (`git commit -m 'Add some AmazingFeature'`)
-4. **Push vers la branche** (`git push origin feature/AmazingFeature`)
-5. **Ouvrir une Pull Request**
+### Outils de diagnostic
+![Diagnostic Tools](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/screenshots/diagnostic-tools.png)
 
-### Guidelines de Contribution
+### Gestion des profils
+![Profile Manager](https://raw.githubusercontent.com/Regis-Scyeur/Net-IP-Config-Classic/master/screenshots/profile-manager.png)
 
-- Suivre les conventions de code C#
-- Documenter les nouvelles fonctionnalités
-- Ajouter des tests si applicable
-- Mettre à jour la documentation
+## 🛠️ Technologies utilisées
 
----
+- **Langage** : C# 7.3
+- **Framework** : .NET Framework 4.7.2
+- **Interface** : Windows Forms
+- **IDE** : Visual Studio 2019+
+
+### Bibliothèques principales
+
+- `System.Net.NetworkInformation` : Pour les informations réseau
+- `System.Management` : Pour l'accès WMI et la configuration réseau
+- `System.Diagnostics` : Pour l'exécution de commandes système
+
+## 🤝 Contribuer
+
+Les contributions sont les bienvenues ! Voici comment contribuer :
+
+1. Forkez le projet
+2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
+3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Poussez vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
+
+### Guidelines de contribution
+
+- Respectez le style de code existant
+- Ajoutez des commentaires pour le code complexe
+- Testez vos modifications avant de soumettre
+- Mettez à jour la documentation si nécessaire
+
+## 📋 Roadmap
+
+- [ ] Support de IPv6
+- [ ] Interface en dark mode
+- [ ] Export des logs en fichier
+- [ ] Planification de changements de profils
+- [ ] Support multi-langue
+- [ ] Interface web pour gestion à distance
+- [ ] Notifications système
+- [ ] Sauvegarde automatique de configuration
+
+## 🐛 Problèmes connus
+
+- Nécessite des droits administrateur pour fonctionner
+- Peut ne pas détecter certaines cartes réseau virtuelles
+- Le traceroute peut être lent sur certains réseaux
+
+## 📝 Changelog
+
+### Version 1.0.0 (2024-01-15)
+- ✨ Release initiale
+- ✅ Configuration IP/DNS/Gateway
+- ✅ Outils de diagnostic (ping, traceroute, DNS lookup)
+- ✅ Gestion de profils
+- ✅ Interface utilisateur moderne
+
+## 🔐 Sécurité
+
+Si vous découvrez une faille de sécurité, veuillez nous envoyer un email à [votre-email] plutôt que d'utiliser le système d'issues.
 
 ## 📄 Licence
 
-Ce projet est sous licence MIT. Voir [LICENSE](LICENSE) pour plus de détails.
-
----
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ## 👤 Auteur
 
-**Regis-Scyeur**
-
+**Regis Scyeur**
 - GitHub: [@Regis-Scyeur](https://github.com/Regis-Scyeur)
-- Email: [votre-email@example.com](mailto:votre-email@example.com)
+
+## 🙏 Remerciements
+
+- Merci à tous les contributeurs du projet
+- Inspiré par les outils réseau Windows classiques
+- Communauté .NET pour les ressources et la documentation
+
+## 📞 Support
+
+Pour obtenir de l'aide :
+- 📫 Ouvrez une issue sur GitHub
+- 💬 Consultez la documentation
+- 🌐 Visitez la page wiki du projet
 
 ---
 
-<div align="center">
+⭐ Si ce projet vous a été utile, n'hésitez pas à lui donner une étoile !
 
-**⭐ Si vous aimez ce projet, n'hésitez pas à lui donner une étoile ! ⭐**
-
-</div>
+**Note** : Ce projet est destiné à des fins éducatives et de démonstration. Utilisez-le à vos propres risques sur des réseaux de production.
